@@ -5,8 +5,6 @@ import dynamic from "next/dynamic";
 import { ThemeProvider } from "utils/theme-context";
 
 import ServicesGroup from "components/services/group";
-import BookmarksGroup from "components/bookmarks/group";
-import Widget from "components/widget";
 import { ColorProvider } from "utils/color-context";
 
 const ThemeToggle = dynamic(() => import("components/theme-toggle"), {
@@ -17,12 +15,8 @@ const ColorToggle = dynamic(() => import("components/color-toggle"), {
   ssr: false,
 });
 
-const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather"];
-
 export default function Home() {
   const { data: services, error: servicesError } = useSWR("/api/services");
-  const { data: bookmarks, error: bookmarksError } = useSWR("/api/bookmarks");
-  const { data: widgets, error: widgetsError } = useSWR("/api/widgets");
 
   return (
     <ColorProvider>
