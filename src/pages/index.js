@@ -28,27 +28,9 @@ export default function Home() {
     <ColorProvider>
       <ThemeProvider>
         <Head>
-          <title>Welcome</title>
+          <title>Home</title>
         </Head>
         <div className="w-full container m-auto flex flex-col h-screen justify-between">
-          <div className="flex flex-wrap space-x-4 m-8 pb-4 mt-10 border-b-2 border-theme-800 dark:border-theme-200">
-            {widgets && (
-              <>
-                {widgets
-                  .filter((widget) => !rightAlignedWidgets.includes(widget.type))
-                  .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
-                  ))}
-                <div className="grow"></div>
-                {widgets
-                  .filter((widget) => rightAlignedWidgets.includes(widget.type))
-                  .map((widget, i) => (
-                    <Widget key={i} widget={widget} />
-                  ))}
-              </>
-            )}
-          </div>
-
           {services && (
             <div className="flex flex-wrap p-8 items-start">
               {services.map((group) => (
@@ -56,15 +38,6 @@ export default function Home() {
               ))}
             </div>
           )}
-
-          {bookmarks && (
-            <div className="grow flex flex-wrap pt-0 p-8">
-              {bookmarks.map((group) => (
-                <BookmarksGroup key={group.name} group={group} />
-              ))}
-            </div>
-          )}
-
           <div className="rounded-full flex p-8 w-full justify-between">
             <ColorToggle />
             <ThemeToggle />
