@@ -12,9 +12,9 @@ function resolveIcon(icon) {
     return icon;
   } else {
     if (icon.endsWith(".png")) {
-      return `https://dashboard-icons.oss-cn-hangzhou.aliyuncs.com/png/${icon}`;
+      return `/png/${icon}`;
     } else {
-      return `https://dashboard-icons.oss-cn-hangzhou.aliyuncs.com/png/${icon}.png`;
+      return `/${icon}.png`;
     }
   }
 }
